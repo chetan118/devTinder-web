@@ -1,9 +1,8 @@
 const UserCard = ({ user }) => {
-  console.log(user);
   return (
-    <div className="card bg-base-300 w-96 shadow-sm">
+    <div className="card bg-base-300 w-96 shadow-sm mx-2">
       <figure>
-        <img src={user.photoUrl} alt="Photo" />
+        <img src={user.photoUrl} alt="Photo" className="max-h-50" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{user.firstName + " " + user.lastName}</h2>
