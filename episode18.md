@@ -4,3 +4,4 @@
 
 - Connections page
 - Requests page
+- Accept/Reject connections

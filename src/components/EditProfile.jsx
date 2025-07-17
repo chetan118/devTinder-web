@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { addUser } from "../utils/userSlice";
 import UserCard from "./UserCard";
+import ToastSuccessMessage from "./ToastSuccessMessage";
 
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
@@ -52,13 +53,7 @@ const EditProfile = ({ user }) => {
 
   return (
     <div className="flex justify-center mt-10 mb-20">
-      {saveProfileRes.success && (
-        <div className="toast toast-top toast-center z-1">
-          <div className="alert alert-success">
-            <span>{saveProfileRes.message}</span>
-          </div>
-        </div>
-      )}
+      <ToastSuccessMessage result={saveProfileRes} />
       <div className="flex justify-center mx-2">
         <div className="card card-border bg-base-300 w-96">
           <div className="card-body">
