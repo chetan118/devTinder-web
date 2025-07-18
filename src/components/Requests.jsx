@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addRequests, removeRequestById } from "../utils/requestsSlice";
 import { useEffect, useState } from "react";
 import ToastSuccessMessage from "./ToastSuccessMessage";
+import { removeConnections } from "../utils/connectionsSlice";
 
 const Requests = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,10 @@ const Requests = () => {
           message: "",
         });
       }, 3000);
+      if (status === "accepted") {
+        // need to fetch connections again on connections page when request is accepted
+        dispatch(removeConnections());
+      }
     } catch (err) {
       // on failure, adding all the requests back to the store
       dispatch(addRequests(requests));

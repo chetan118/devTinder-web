@@ -6,14 +6,18 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("dhoni@abc.com");
-  const [password, setPassword] = useState("Dhoni@123");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoginPage, setIsLoginPage] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
+      setError("");
       const res = await axios.post(
         BASE_URL + "/login",
         {
@@ -29,10 +33,118 @@ const Login = () => {
     }
   };
 
+  const handleSignUp = async () => {
+    try {
+      setError("");
+      const res = await axios.post(
+        BASE_URL + "/signup",
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      dispatch(addUser(res?.data?.data));
+      return navigate("/profile");
+    } catch (err) {
+      setError(err?.response?.data);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      isLoginPage ? handleLogin() : handleSignUp();
+    }
+  };
+
   return (
     <div className="flex justify-center mt-10 mb-20">
       <div className="card card-border bg-base-300 w-96">
         <div className="card-body">
+          {!isLoginPage && (
+            <>
+              <div className="label">
+                <span>First Name</span>
+              </div>
+              <label className="input validator">
+                <svg
+                  className="h-[1em] opacity-50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </g>
+                </svg>
+                <input
+                  type="text"
+                  required
+                  placeholder="First Name"
+                  pattern="[A-Za-z][A-Za-z0-9\- ]*"
+                  minLength="2"
+                  maxLength="50"
+                  title="Only letters, numbers, dash or space"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                />
+              </label>
+              <p className="validator-hint hidden">
+                Must be 2 to 50 characters
+                <br />
+                containing only letters, numbers, dash or space
+              </p>
+              <div className="label">
+                <span>Last Name</span>
+              </div>
+              <label className="input validator">
+                <svg
+                  className="h-[1em] opacity-50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </g>
+                </svg>
+                <input
+                  type="text"
+                  required
+                  placeholder="Last Name"
+                  pattern="[A-Za-z][A-Za-z0-9\- ]*"
+                  minLength="2"
+                  maxLength="50"
+                  title="Only letters, numbers, dash or space"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                />
+              </label>
+              <p className="validator-hint hidden">
+                Must be 2 to 50 characters
+                <br />
+                containing only letters, numbers, dash or space
+              </p>
+            </>
+          )}
           <div className="label">
             <span>Email ID</span>
           </div>
@@ -58,6 +170,7 @@ const Login = () => {
               value={emailId}
               placeholder="mail@site.com"
               onChange={(e) => setEmailId(e.target.value)}
+              onKeyDown={handleKeyDown}
               required
             />
           </label>
@@ -88,6 +201,7 @@ const Login = () => {
               required
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
               minLength="8"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
@@ -104,11 +218,19 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button
               className="btn btn-outline btn-primary"
-              onClick={handleLogin}
+              onClick={isLoginPage ? handleLogin : handleSignUp}
             >
-              Login
+              {isLoginPage ? "Login" : "SignUp"}
             </button>
           </div>
+          <p
+            onClick={() => setIsLoginPage(!isLoginPage)}
+            className="cursor-pointer mx-auto mt-2"
+          >
+            {isLoginPage
+              ? "New User? Please sign up here..."
+              : "Existing User? Please login here..."}
+          </p>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import NavBar from "./NavBar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -10,6 +10,7 @@ import { useEffect } from "react";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const user = useSelector((state) => state.user);
 
   const fetchUser = async () => {
@@ -19,6 +20,10 @@ const Body = () => {
           withCredentials: true,
         });
         dispatch(addUser(res.data));
+      }
+      if (location.pathname === "/login") {
+        // user is logged in and tries to visit the login page
+        navigate("/");
       }
     } catch (err) {
       if (err.status === 401) {
