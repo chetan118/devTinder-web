@@ -25,12 +25,18 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return (
-    feed && (
+  if (!feed || feed.length <= 0) {
+    return (
       <div className="flex justify-center my-10">
-        <UserCard user={feed[0]} />
+        <h1 className="text-3xl">No Users Found</h1>
       </div>
-    )
+    );
+  }
+
+  return (
+    <div className="flex justify-center my-10">
+      <UserCard user={feed[0]} />
+    </div>
   );
 };
 

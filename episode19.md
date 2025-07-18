@@ -5,3 +5,4 @@
 - Ignore/Interest action on user card from feed
 - Signup New User
 - E2E Testing
+- Fix Image and text width on connections and requests pages
