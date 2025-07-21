@@ -1,12 +1,34 @@
-# React + Vite
+# Dev Tinder Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployment
 
-Currently, two official plugins are available:
+- Signup on AWS
+- Launch Instance
+- Create key-value secret
+- Run command `chmod 400 <secret>.pem` (for mac or linux)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - For Windows
 
-## Expanding the ESLint configuration
+    - ```
+      icacls.exe devTinder-secret.pem /reset
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+      icacls.exe devTinder-secret.pem /grant:r "%username%:(R)"
+
+      icacls.exe devTinder-secret.pem /inheritance:r
+      ```
+
+- Run command `ssh -i "devTinder-secret.pem" ubuntu@ec2-13-48-10-118.eu-north-1.compute.amazonaws.com`
+- Install node version 23.9.0 (my local node version)
+  - Install node for linux using nvm from https://nodejs.org/en/download
+  - Install node with `nvm install 23.9.0`
+- Clone the backend and frontend git repositories
+- For frontend
+  - Install dependencies - `npm install`
+  - Build files with `npm run build`
+  - Install, start and enable nginx (for the http server)
+    - `sudo apt update`
+    - `sudo apt install nginx`
+    - `sudo systemctl start nginx`
+    - `sudo systemctl enable nginx`
+  - Copy code from dist (build files) to `/var/www/html`
+    - `sudo scp -r dist/* /var/www/html/`
