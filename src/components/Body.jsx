@@ -14,18 +14,12 @@ const Body = () => {
   const user = useSelector((state) => state.user);
 
   const fetchUser = async () => {
+    if (user) return;
     try {
-      if (!user) {
-        const res = await axios.get(BASE_URL + "/profile/view", {
-          withCredentials: true,
-        });
-        dispatch(addUser(res.data));
-      } else {
-        if (location.pathname === "/login") {
-          // user is logged in and tries to visit the login page
-          navigate("/");
-        }
-      }
+      const res = await axios.get(BASE_URL + "/profile/view", {
+        withCredentials: true,
+      });
+      dispatch(addUser(res.data));
     } catch (err) {
       if (err.status === 401) {
         navigate("/login");
