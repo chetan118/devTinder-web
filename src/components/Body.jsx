@@ -20,10 +20,11 @@ const Body = () => {
           withCredentials: true,
         });
         dispatch(addUser(res.data));
-      }
-      if (location.pathname === "/login") {
-        // user is logged in and tries to visit the login page
-        navigate("/");
+      } else {
+        if (location.pathname === "/login") {
+          // user is logged in and tries to visit the login page
+          navigate("/");
+        }
       }
     } catch (err) {
       if (err.status === 401) {

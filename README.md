@@ -79,3 +79,13 @@ It becomes,
         proxy_cache_bypass $http_upgrade;
     }
   ```
+
+## Adding a custom domain name
+
+- Purchased a domain chetansakpal.com from godaddy
+- Signup on cloudflare
+- Change the nameservers on godaddy and point it to cloudflare
+- Wait for some time till your nameservers are updated
+- Once done, godaddy is now just the domain registrar for chetansakpal.com
+- and its dns records will be managed by cloudflare
+- DNS record: A chetansakpal.com 13.48.10.118
