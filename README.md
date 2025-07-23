@@ -10,14 +10,14 @@
   - For Windows
 
     ```
-      icacls.exe devTinder-secret.pem /reset
+      icacls.exe devTinderMumbai-secret.pem /reset
 
-      icacls.exe devTinder-secret.pem /grant:r "%username%:(R)"
+      icacls.exe devTinderMumbai-secret.pem /grant:r "%username%:(R)"
 
-      icacls.exe devTinder-secret.pem /inheritance:r
+      icacls.exe devTinderMumbai-secret.pem /inheritance:r
     ```
 
-- Run command `ssh -i "devTinder-secret.pem" ubuntu@ec2-13-48-10-118.eu-north-1.compute.amazonaws.com`
+- Run command `ssh -i "devTinderMumbai-secret.pem" ubuntu@ec2-52-66-156-183.ap-south-1.compute.amazonaws.com`
 - Install node version 23.9.0 (my local node version)
   - Install node for linux using nvm from https://nodejs.org/en/download
   - Install node with `nvm install 23.9.0`
@@ -53,10 +53,10 @@
 
 Currently,
 
-- Frontend -> http://13.48.10.118/
-- Backend -> http://13.48.10.118:7777/
+- Frontend -> http://52.66.156.183/
+- Backend -> http://52.66.156.183:7777/
 
-If Domain Name = devtinder.com is mapped to 13.48.10.148
+If Domain Name = devtinder.com is mapped to 52.66.156.183
 
 It becomes,
 
@@ -68,7 +68,7 @@ It becomes,
 - nginx config:
 
   ```
-    server_name 43.204.96.49;
+    server_name 52.66.156.183;
 
     location /api/ {
         proxy_pass http://localhost:7777/;  # Pass the request to the Node.js app
@@ -88,4 +88,5 @@ It becomes,
 - Wait for some time till your nameservers are updated
 - Once done, godaddy is now just the domain registrar for chetansakpal.com
 - and its dns records will be managed by cloudflare
-- DNS record: A chetansakpal.com 13.48.10.118
+- DNS record: A chetansakpal.com 52.66.156.183
+- Enable SSL for website
