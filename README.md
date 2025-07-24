@@ -90,3 +90,6 @@ It becomes,
 - and its dns records will be managed by cloudflare
 - DNS record: A chetansakpal.com 52.66.156.183
 - Enable SSL for website
+
+## SSL Certificate to enable Full (strict) mode on cloudflare
+TKTK
