@@ -22,8 +22,8 @@ const Body = () => {
         dispatch(addUser(res.data));
       } else {
         if (location.pathname === "/login") {
-          // user is logged in and tries to visit the login page
-          navigate("/");
+          console.log("user is logged in and tries to visit the login page");
+          return navigate("/");
         }
       }
     } catch (err) {
