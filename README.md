@@ -92,4 +92,21 @@ It becomes,
 - Enable SSL for website
 
 ## SSL Certificate to enable Full (strict) mode on cloudflare
-TKTK
+
+- Run following commands
+  ```
+  sudo apt update
+  sudo apt install certbot python3-certbot-nginx -y
+  sudo certbot --nginx -d chetansakpal.com -d www.chetansakpal.com
+  ```
+- It will:
+  - Automatically get a free SSL cert
+  - Configure Nginx for HTTPS
+  - Restart Nginx with the correct SSL config
+- Enable port `:443` of your instance
+- Then in Cloudflare: Switch SSL mode to: Full (Strict)
+- Once HTTPS works:
+  - Enable “Always Use HTTPS”
+    → Cloudflare → SSL/TLS → Edge Certificates
+  - Enable “Automatic HTTPS Rewrites”
+    → Fixes mixed content issues
