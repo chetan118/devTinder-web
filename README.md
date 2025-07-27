@@ -80,7 +80,7 @@ It becomes,
     }
   ```
 
-## Adding a custom domain name
+## Adding a custom domain name (chetansakpal.com)
 
 - Purchased a domain chetansakpal.com from godaddy
 - Signup on cloudflare
