@@ -15,17 +15,11 @@ const Body = () => {
 
   const fetchUser = async () => {
     try {
-      if (!user) {
-        const res = await axios.get(BASE_URL + "/profile/view", {
-          withCredentials: true,
-        });
-        dispatch(addUser(res.data));
-      } else {
-        if (location.pathname === "/login") {
-          console.log("user is logged in and tries to visit the login page");
-          return navigate("/");
-        }
-      }
+      if (user) return;
+      const res = await axios.get(BASE_URL + "/profile/view", {
+        withCredentials: true,
+      });
+      dispatch(addUser(res.data));
     } catch (err) {
       if (err.status === 401) {
         navigate("/login");
@@ -37,6 +31,12 @@ const Body = () => {
   useEffect(() => {
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    if (user && location.pathname === "/login") {
+      navigate("/");
+    }
+  }, [user, location.pathname, navigate]);
 
   return (
     <div>
