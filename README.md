@@ -1,6 +1,6 @@
 # Dev Tinder Frontend
 
-This is a React app which communicates with the NodeJS backend app in [DevTinder](https://github.com/chetan118/devTinder).
+This is a React app which communicates with the APIs in the NodeJS backend app in [DevTinder](https://github.com/chetan118/devTinder).
 
 ## Deployment
 
