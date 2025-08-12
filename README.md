@@ -115,5 +115,3 @@ It becomes,
 - Check which ssl certificate is returned using `openssl s_client -connect 52.66.156.183:443 -servername chetansakpal.com`
 
 ## Sending Emails using Amazon SES
-
-#### TKTK
