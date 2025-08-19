@@ -116,4 +116,16 @@ It becomes,
 
 ## Sending Emails using Amazon SES
 
-#### TKTK
+- Create an IAM user
+- Give AmazonSESFullAccess to the user
+- Amazon SES: Create an Identity
+- Verify your domain name
+- Verify an email address identity
+- Install AWS SDK - v3
+- https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples
+- Setup SesClient
+- Access Credentials should be created for the IAM User under the SecurityCredentials tab
+- Add the credentials to the env file
+- Write code for SESClient
+- Write code for Sending email address
+- Make the email dynamic by passing more params to the run function
