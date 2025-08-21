@@ -7,6 +7,11 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Requests from "./components/Requests";
 import Connections from "./components/Connections";
+import CancellationsAndRefunds from "./components/pages/CancellationsAndRefunds";
+import TermsAndConditions from "./components/pages/TermsAndConditions";
+import Shipping from "./components/pages/Shipping";
+import Privacy from "./components/pages/Privacy";
+import ContactUs from "./components/pages/ContactUs";
 
 function App() {
   return (
@@ -20,6 +25,17 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/user/requests" element={<Requests />} />
               <Route path="/user/connections" element={<Connections />} />
+              <Route
+                path="/pages/cancellations-and-refunds"
+                element={<CancellationsAndRefunds />}
+              />
+              <Route
+                path="/pages/terms-and-conditions"
+                element={<TermsAndConditions />}
+              />
+              <Route path="/pages/shipping" element={<Shipping />} />
+              <Route path="/pages/privacy" element={<Privacy />} />
+              <Route path="/pages/contact-us" element={<ContactUs />} />
             </Route>
           </Routes>
         </BrowserRouter>
