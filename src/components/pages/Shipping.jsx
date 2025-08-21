@@ -1,7 +1,7 @@
 import Section from "./Section";
 
 const COMPANY_NAME = "Chetan Sakpal (Website Development Services)";
-const WEBSITE_URL = "https://chetansakpal.com";
+const CONTACT_EMAIL = "hello@chetansakpal.com";
 const EFFECTIVE_DATE = "August 22, 2025";
 
 const Shipping = () => {
@@ -48,11 +48,8 @@ const Shipping = () => {
 
       <h3 className="mt-5">4. Contact</h3>
       <p>
-        For any queries regarding delivery, please contact us via{" "}
-        <a href={WEBSITE_URL} target="_blank" rel="noreferrer">
-          {WEBSITE_URL}
-        </a>
-        .
+        For any issues in utilizing our services you may contact our helpdesk on
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
       </p>
     </Section>
   );

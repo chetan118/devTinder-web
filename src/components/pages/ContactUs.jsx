@@ -1,7 +1,7 @@
 import Section from "./Section";
 
 const COMPANY_NAME = "Chetan Sakpal (Website Development Services)";
-const CONTACT_EMAIL = "support@chetansakpal.com";
+const CONTACT_EMAIL = "hello@chetansakpal.com";
 const WEBSITE_URL = "https://chetansakpal.com";
 const ADDRESS = "Mumbai, Maharashtra, India";
 
