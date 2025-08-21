@@ -143,3 +143,7 @@ It becomes,
   - bull package
 - Amazon SES to send Bulk Emails
 - Make sendEmail function dynamic (use templates)
+
+## Razorpay payment gateway integration
+
+- Sign up on Razorpay & complete KYC (will take around 3-5 days)
