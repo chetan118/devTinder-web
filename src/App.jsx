@@ -25,18 +25,18 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/user/requests" element={<Requests />} />
               <Route path="/user/connections" element={<Connections />} />
-              <Route
-                path="/pages/cancellations-and-refunds"
-                element={<CancellationsAndRefunds />}
-              />
-              <Route
-                path="/pages/terms-and-conditions"
-                element={<TermsAndConditions />}
-              />
-              <Route path="/pages/shipping" element={<Shipping />} />
-              <Route path="/pages/privacy" element={<Privacy />} />
-              <Route path="/pages/contact-us" element={<ContactUs />} />
             </Route>
+            <Route
+              path="/pages/cancellations-and-refunds"
+              element={<CancellationsAndRefunds />}
+            />
+            <Route
+              path="/pages/terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
+            <Route path="/pages/shipping" element={<Shipping />} />
+            <Route path="/pages/privacy" element={<Privacy />} />
+            <Route path="/pages/contact-us" element={<ContactUs />} />
           </Routes>
         </BrowserRouter>
       </Provider>
