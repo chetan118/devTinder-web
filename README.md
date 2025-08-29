@@ -147,3 +147,4 @@ It becomes,
 ## Razorpay payment gateway integration
 
 - Sign up on Razorpay & complete KYC (will take around 3-5 days)
+- Setup works with test api
