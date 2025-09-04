@@ -12,6 +12,7 @@ import TermsAndConditions from "./components/pages/TermsAndConditions";
 import Shipping from "./components/pages/Shipping";
 import Privacy from "./components/pages/Privacy";
 import ContactUs from "./components/pages/ContactUs";
+import Premium from "./components/Premium";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/user/requests" element={<Requests />} />
               <Route path="/user/connections" element={<Connections />} />
+              <Route path="/premium" element={<Premium />} />
             </Route>
             <Route
               path="/pages/cancellations-and-refunds"

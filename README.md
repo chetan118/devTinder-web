@@ -147,4 +147,5 @@ It becomes,
 ## Razorpay payment gateway integration
 
 - Sign up on Razorpay & complete KYC (will take around 3-5 days)
-- Setup works with test api
+- Created an UI for premium page on the frontend
+- Created an API for create order in the backend
