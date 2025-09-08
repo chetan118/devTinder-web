@@ -155,3 +155,4 @@ It becomes,
 - Created schema and model
 - Saved the order in payments collection
 - Made the API dynamic
+- Setup Razorpay webhook on your live API
