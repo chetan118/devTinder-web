@@ -149,3 +149,9 @@ It becomes,
 - Sign up on Razorpay & complete KYC (will take around 3-5 days)
 - Created an UI for premium page on the frontend
 - Created an API for create order in the backend
+- Added key id and key secret in the env file
+- Instantiated Razoray in utils
+- Created an order on Razorpay
+- Created schema and model
+- Saved the order in payments collection
+- Made the API dynamic
