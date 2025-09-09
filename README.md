@@ -156,3 +156,9 @@ It becomes,
 - Saved the order in payments collection
 - Made the API dynamic
 - Setup Razorpay webhook on your live API
+- Create a POST API endpoint in the backend which razorpay will hit on payment success or failure
+- Ref
+  - https://github.com/razorpay/razorpay-node/tree/master/documents
+  - https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/#integrate-with-razorpay-payment-gateway
+  - https://razorpay.com/docs/webhooks/validate-test/
+  - https://razorpay.com/docs/webhooks/payloads/payments/
