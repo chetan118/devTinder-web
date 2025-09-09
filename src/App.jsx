@@ -13,6 +13,7 @@ import Shipping from "./components/pages/Shipping";
 import Privacy from "./components/pages/Privacy";
 import ContactUs from "./components/pages/ContactUs";
 import Premium from "./components/Premium";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/user/requests" element={<Requests />} />
               <Route path="/user/connections" element={<Connections />} />
               <Route path="/premium" element={<Premium />} />
+              <Route path="/chat/:targetUserId" element={<Chat />} />
             </Route>
             <Route
               path="/pages/cancellations-and-refunds"

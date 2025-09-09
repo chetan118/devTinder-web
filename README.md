@@ -162,3 +162,7 @@ It becomes,
   - https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/#integrate-with-razorpay-payment-gateway
   - https://razorpay.com/docs/webhooks/validate-test/
   - https://razorpay.com/docs/webhooks/payloads/payments/
+
+## Real Time chat using Websocket (Socket.io)
+
+- Build the UI for a chat window

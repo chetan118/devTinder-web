@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionsSlice";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Connections = () => {
   const dispatch = useDispatch();
@@ -45,15 +46,18 @@ const Connections = () => {
             className="flex justify-between items-center rounded-lg bg-base-300 m-4 p-4 w-2/3 mx-auto"
             key={_id}
           >
-            <div>
-              <img src={photoUrl} className="rounded-lg" alt="photo" />
-            </div>
+            <img src={photoUrl} className="w-50 rounded-lg" alt="photo" />
             <div className="mx-5 text-left w-max">
               <h2 className="font-bold text-lg">
                 {firstName + " " + lastName}
               </h2>
               {age && gender && <p>{age + ", " + gender}</p>}
               <p>{about}</p>
+            </div>
+            <div className="mx-5 w-max">
+              <Link to={"/chat/" + _id}>
+                <button className="btn btn-primary">Chat</button>
+              </Link>
             </div>
           </div>
         );
