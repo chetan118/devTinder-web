@@ -165,4 +165,5 @@ It becomes,
 
 ## Real Time chat using Websocket (Socket.io)
 
-- Build the UI for a chat window
+- Build the UI for a chat window on /chat/:targetUserId
+- Setup socket.io in the backend
