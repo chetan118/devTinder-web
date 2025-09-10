@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { createSocketConnection } from "../utils/socket";
+import { useSelector } from "react-redux";
 
 const Chat = () => {
   const { targetUserId } = useParams();
   const [messages, setMessages] = useState([{ text: "Hello World!" }]);
+  const user = useSelector((state) => state.user);
+  const userId = user?._id;
 
-  console.log(targetUserId);
+  useEffect(() => {
+    const socket = createSocketConnection();
+    socket.emit("joinChat", { userId, targetUserId });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   return (
     <div className="w-1/2 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">

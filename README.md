@@ -167,3 +167,4 @@ It becomes,
 
 - Build the UI for a chat window on /chat/:targetUserId
 - Setup socket.io in the backend
+- Setup socket.io-client in the frontend
