@@ -168,3 +168,9 @@ It becomes,
 - Build the UI for a chat window on /chat/:targetUserId
 - Setup socket.io in the backend
 - Setup socket.io-client in the frontend
+- Use events
+  - to detect when a user joins a room
+  - to send message from sender client to the server
+  - and to send message from server to the target client
+- Use crypto to form an encrypted room id
+- Homework - Use the auth param in socket.io to make this more secure -> https://socket.io/docs/v4/client-options/#auth
