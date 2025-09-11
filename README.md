@@ -168,9 +168,18 @@ It becomes,
 - Build the UI for a chat window on /chat/:targetUserId
 - Setup socket.io in the backend
 - Setup socket.io-client in the frontend
+- Instantiate the chat
+- createSocketConnection
 - Use events
   - to detect when a user joins a room
   - to send message from sender client to the server
   - and to send message from server to the target client
 - Use crypto to form an encrypted room id
-- Homework - Use the auth param in socket.io to make this more secure -> https://socket.io/docs/v4/client-options/#auth
+- Homework - Use the auth param in socket.io to make this more secure -> https://socket.io/docs/v4/client-options/#auth - We are not aunthenticating if the user is logged in or not. Web sockets can be created by non logged in users as well.
+- Homework - Improve the UI
+- Homework - Fix - security issue - we can send messages to someone who is not in our connections
+- Homework - Feature - show green symbol when online + last seen 2 hours ago
+- Homework - Limit messages when fetching from DB + Build pagination
+- Project Idea 1 - Tic Tac Toe game
+- Project Idea 2 - Chess game
+- Project Idea 3 - Type Racer
