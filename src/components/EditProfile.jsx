@@ -10,7 +10,7 @@ const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-  const [age, setAge] = useState(user.age || 5);
+  const [age, setAge] = useState(user.age || "");
   const [gender, setGender] = useState(user.gender || "male");
   const [about, setAbout] = useState(user.about);
   const [saveProfileRes, setSaveProfileRes] = useState({
@@ -170,13 +170,13 @@ const EditProfile = ({ user }) => {
               className="input validator"
               required
               placeholder="Age (years)"
-              min="5"
-              max="150"
-              title="Must be between be 5 to 150"
+              min="18"
+              max="100"
+              title="Must be between 18 to 100"
               value={age}
               onChange={(e) => setAge(e.target.value)}
             />
-            <p className="validator-hint hidden">Must be between be 5 to 150</p>
+            <p className="validator-hint hidden">Must be between 18 to 100</p>
             <div className="label">
               <span>Gender</span>
             </div>
