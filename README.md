@@ -2,6 +2,46 @@
 
 This is a React app which communicates with the APIs in the NodeJS backend app in [DevTinder](https://github.com/chetan118/devTinder).
 
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm v9 or higher
+- The [devTinder backend](https://github.com/chetan118/devTinder) running locally
+
+### Installation
+
+```bash
+git clone https://github.com/chetan118/devTinder-web.git
+cd devTinder-web
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```
+VITE_BASE_URL=http://localhost:7777
+```
+
+### Running the Development Server
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+Build output is in the `dist/` directory.
+
 ## Deployment
 
 - Signup on AWS
