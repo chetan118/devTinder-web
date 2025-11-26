@@ -100,7 +100,7 @@ const Login = () => {
                   onKeyDown={handleKeyDown}
                 />
               </label>
-              <p className="validator-hint hidden">
+              <p className="validator-hint">
                 Must be 2 to 50 characters
                 <br />
                 containing only letters, numbers, dash or space
@@ -138,7 +138,7 @@ const Login = () => {
                   onKeyDown={handleKeyDown}
                 />
               </label>
-              <p className="validator-hint hidden">
+              <p className="validator-hint">
                 Must be 2 to 50 characters
                 <br />
                 containing only letters, numbers, dash or space
@@ -174,7 +174,7 @@ const Login = () => {
               required
             />
           </label>
-          <div className="validator-hint hidden">Enter valid email address</div>
+          <div className="validator-hint">Enter valid email address</div>
           <div className="label">
             <span>Password</span>
           </div>
@@ -207,7 +207,7 @@ const Login = () => {
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
             />
           </label>
-          <p className="validator-hint hidden">
+          <p className="validator-hint">
             Must be more than 8 characters, including
             <br />
             At least one number <br />
