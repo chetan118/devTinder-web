@@ -11,12 +11,14 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const user = useSelector((state) => state.user);
   const userId = user?._id;
+  const socketRef = useRef(null);
 
   useEffect(() => {
     if (!userId) {
       return;
     }
     const socket = createSocketConnection();
+    socketRef.current = socket;
     socket.emit("joinChat", {
       firstName: user.firstName,
       userId,
@@ -36,8 +38,8 @@ const Chat = () => {
   }, [userId, targetUserId]);
 
   const sendMessage = () => {
-    const socket = createSocketConnection();
-    socket.emit("sendMessage", {
+    if (!socketRef.current || !newMessage.trim()) return;
+    socketRef.current.emit("sendMessage", {
       firstName: user.firstName,
       lastName: user.lastName,
       userId,
