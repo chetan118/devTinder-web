@@ -13,6 +13,7 @@ const Requests = () => {
     success: false,
     message: "",
   });
+  const [errorToast, setErrorToast] = useState({ success: false, message: "" });
 
   const reviewRequest = async (requestId, status) => {
     try {
@@ -40,8 +41,8 @@ const Requests = () => {
     } catch (err) {
       // on failure, adding all the requests back to the store
       dispatch(addRequests(requests));
-      // TODO: show a ToastFailureMessage on error
-      console.error(err);
+      setErrorToast({ success: true, message: "Action failed. Please try again." });
+      setTimeout(() => setErrorToast({ success: false, message: "" }), 3000);
     }
   };
 
@@ -75,6 +76,7 @@ const Requests = () => {
   return (
     <div className="mt-10 mb-20 text-center">
       <ToastSuccessMessage result={reviewRequestRes} />
+      <ToastSuccessMessage result={errorToast} type="error" />
       <h1 className="font-bold text-2xl">Pending Requests</h1>
       {requests.map((request) => {
         const { _id, firstName, lastName, photoUrl, age, gender, about } =
