@@ -29,7 +29,7 @@ const Chat = () => {
       console.log(
         firstName + " " + lastName + " sent the following message: " + text
       );
-      setMessages((messages) => [...messages, { firstName, lastName, text }]);
+      setMessages((messages) => [...messages, { firstName, lastName, text, createdAt: new Date().toISOString() }]);
     });
 
     return () => {
@@ -54,11 +54,12 @@ const Chat = () => {
       withCredentials: true,
     });
     const chatMessages = chat.data.messages.map((msg) => {
-      const { senderId, text } = msg;
+      const { senderId, text, createdAt } = msg;
       return {
         firstName: senderId.firstName,
         lastName: senderId.lastName,
         text,
+        createdAt,
       };
     });
     setMessages(chatMessages);
@@ -99,7 +100,7 @@ const Chat = () => {
             >
               <div className="chat-header">
                 {`${msg.firstName} ${msg.lastName}`}
-                <time className="text-xs opacity-50">2 hours ago</time>
+                <time className="text-xs opacity-50">{msg.createdAt ? new Date(msg.createdAt).toLocaleTimeString() : ""}</time>
               </div>
               <div className="chat-bubble">{msg.text}</div>
               <div className="chat-footer opacity-50">Delivered</div>
