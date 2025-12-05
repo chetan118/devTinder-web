@@ -9,12 +9,12 @@ const UserCard = ({ user }) => {
 
   const sendRequest = async (userId, status) => {
     try {
-      dispatch(removeUserFromFeed(userId));
       const res = await axios.post(
         BASE_URL + "/request/send/" + status + "/" + userId,
         {},
         { withCredentials: true }
       );
+      dispatch(removeUserFromFeed(userId));
     } catch (err) {
       console.error(err);
     }
