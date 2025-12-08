@@ -12,12 +12,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoginPage, setIsLoginPage] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       setError("");
+      setIsLoading(true);
       const res = await axios.post(
         BASE_URL + "/login",
         {
@@ -30,12 +32,15 @@ const Login = () => {
       return navigate("/");
     } catch (err) {
       setError(err?.response?.data);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleSignUp = async () => {
     try {
       setError("");
+      setIsLoading(true);
       const res = await axios.post(
         BASE_URL + "/signup",
         {
@@ -52,6 +57,8 @@ const Login = () => {
       return navigate("/profile");
     } catch (err) {
       setError(err?.response?.data);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -218,9 +225,10 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button
               className="btn btn-outline btn-primary"
+              disabled={isLoading}
               onClick={isLoginPage ? handleLogin : handleSignUp}
             >
-              {isLoginPage ? "Login" : "SignUp"}
+              {isLoading ? <span className="loading loading-spinner loading-xs"></span> : (isLoginPage ? "Login" : "SignUp")}
             </button>
           </div>
           <p
