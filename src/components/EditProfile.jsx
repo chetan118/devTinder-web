@@ -18,11 +18,13 @@ const EditProfile = ({ user }) => {
     message: "",
   });
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleSaveProfile = async () => {
     setError("");
     try {
+      setIsLoading(true);
       const res = await axios.patch(
         BASE_URL + "/profile/edit",
         {
@@ -48,6 +50,8 @@ const EditProfile = ({ user }) => {
       dispatch(addUser(res?.data?.data));
     } catch (err) {
       setError(err?.response?.data);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -209,9 +213,10 @@ const EditProfile = ({ user }) => {
             <div className="card-actions justify-center">
               <button
                 className="btn btn-outline btn-primary"
+                disabled={isLoading}
                 onClick={handleSaveProfile}
               >
-                Save Profile
+                {isLoading ? "Saving..." : "Save Profile"}
               </button>
             </div>
           </div>
