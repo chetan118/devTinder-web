@@ -27,7 +27,7 @@ const NavBar = () => {
       dispatch(removeConnections());
       return navigate("/login");
     } catch (err) {
-      console.error(err);
+      console.warn("Logout failed:", err.message);
     }
   };
   return (
