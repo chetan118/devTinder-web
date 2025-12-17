@@ -2,15 +2,17 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionsSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Connections = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const connections = useSelector((state) => state.connections);
 
   const fetchConnections = async () => {
     try {
+      setIsLoading(true);
       if (connections) return;
 
       const res = await axios.get(BASE_URL + "/user/connections", {
@@ -19,12 +21,20 @@ const Connections = () => {
       dispatch(addConnections(res?.data?.data));
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchConnections();
   }, []);
+
+  if (isLoading) return (
+    <div className="flex justify-center mt-20">
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>
+  );
 
   if (!connections) return;
   if (connections.length === 0) {
