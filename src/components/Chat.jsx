@@ -38,6 +38,7 @@ const Chat = () => {
   }, [userId, targetUserId]);
 
   const sendMessage = () => {
+    // Prevent sending empty messages
     if (!socketRef.current || !newMessage.trim()) return;
     socketRef.current.emit("sendMessage", {
       firstName: user.firstName,
