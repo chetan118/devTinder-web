@@ -14,6 +14,7 @@ const Requests = () => {
     message: "",
   });
   const [errorToast, setErrorToast] = useState({ success: false, message: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
   const reviewRequest = async (requestId, status) => {
     try {
@@ -48,6 +49,7 @@ const Requests = () => {
 
   const fetchRequests = async () => {
     try {
+      setIsLoading(true);
       if (requests) return;
 
       const res = await axios.get(BASE_URL + "/user/requests/received", {
@@ -56,12 +58,20 @@ const Requests = () => {
       dispatch(addRequests(res?.data?.data));
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchRequests();
   }, []);
+
+  if (isLoading) return (
+    <div className="flex justify-center mt-20">
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>
+  );
 
   if (!requests) return;
   if (requests.length === 0) {
