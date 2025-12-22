@@ -4,7 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 
 const UserCard = ({ user }) => {
-  const { _id, firstName, lastName, photoUrl, age, gender, about } = user;
+  const { _id, firstName, lastName, photoUrl, age, gender, about, skills } = user;
   const dispatch = useDispatch();
 
   const sendRequest = async (userId, status) => {
@@ -29,6 +29,13 @@ const UserCard = ({ user }) => {
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         {age && gender && <p>{age + ", " + gender}</p>}
         <p>{about}</p>
+        {skills?.length > 0 && (
+          <div className="flex flex-wrap gap-1 mt-2">
+            {skills.map((skill, i) => (
+              <span key={i} className="badge badge-outline badge-sm">{skill}</span>
+            ))}
+          </div>
+        )}
         <div className="card-actions justify-center my-4">
           <button
             className="btn btn-primary"
