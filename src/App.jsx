@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./utils/appStore";
 import Body from "./components/Body";
@@ -41,6 +41,7 @@ function App() {
             <Route path="/pages/shipping" element={<Shipping />} />
             <Route path="/pages/privacy" element={<Privacy />} />
             <Route path="/pages/contact-us" element={<ContactUs />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </Provider>
