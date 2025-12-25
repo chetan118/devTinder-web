@@ -40,7 +40,7 @@ const Connections = () => {
   if (connections.length === 0) {
     return (
       <div className="flex justify-center my-10">
-        <h1 className="text-3xl">No Connections Found</h1>
+        <h1 className="text-3xl">No connections yet. Start swiping!</h1>
       </div>
     );
   }
