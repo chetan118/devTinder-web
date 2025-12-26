@@ -49,7 +49,7 @@ const Connections = () => {
     <div className="mt-10 mb-20 text-center">
       <h1 className="font-bold text-2xl">Connections</h1>
       {connections.map((connection) => {
-        const { _id, firstName, lastName, photoUrl, age, gender, about } =
+        const { _id, firstName, lastName, photoUrl, age, gender, about, skills } =
           connection;
         return (
           <div
@@ -63,6 +63,13 @@ const Connections = () => {
               </h2>
               {age && gender && <p>{age + ", " + gender}</p>}
               <p>{about}</p>
+              {skills?.length > 0 && (
+                <div className="flex flex-wrap gap-1 mt-2">
+                  {skills.map((skill, i) => (
+                    <span key={i} className="badge badge-outline badge-sm">{skill}</span>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="mx-5 w-max">
               <Link to={"/chat/" + _id}>
