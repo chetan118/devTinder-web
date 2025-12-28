@@ -42,7 +42,7 @@ const NavBar = () => {
           <div className="form-control content-center">
             Welcome, {user.firstName}
           </div>
-          <div className="dropdown dropdown-end mx-5">
+          <div className="dropdown dropdown-end mx-5" aria-label="User menu">
             <div
               tabIndex={0}
               role="button"
