@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const Premium = () => {
   const [isUserPremium, setIsUserPremium] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const verifyPremiumUser = async () => {
     const res = await axios.get(BASE_URL + "/user/ispremium", {
@@ -15,6 +16,8 @@ const Premium = () => {
   };
 
   const handleBuyClick = async (type) => {
+    try {
+    setIsLoading(true);
     const order = await axios.post(
       BASE_URL + "/payment/create",
       {
@@ -45,6 +48,11 @@ const Premium = () => {
 
     const rzp = new window.Razorpay(options);
     rzp.open();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
