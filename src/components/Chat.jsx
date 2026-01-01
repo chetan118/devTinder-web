@@ -90,7 +90,7 @@ const Chat = () => {
     <div className="w-2/3 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">
       <h1 className="p-5 border-b border-gray-600">Chat</h1>
       <div className="p-5 flex-1 overflow-auto">
-        {messages.map((msg, index) => {
+        {messages && messages.map((msg, index) => {
           return (
             <div
               key={index}
