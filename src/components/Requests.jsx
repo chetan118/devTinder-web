@@ -97,7 +97,7 @@ const Requests = () => {
             key={_id}
           >
             <div>
-              <img src={photoUrl} className="rounded-lg" alt="photo" />
+              <img src={photoUrl} className="rounded-lg" alt={firstName + " " + lastName} />
             </div>
             <div className="mx-5 text-left w-max">
               <h2 className="font-bold text-lg">
