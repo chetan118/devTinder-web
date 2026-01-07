@@ -39,12 +39,14 @@ const UserCard = ({ user }) => {
         <div className="card-actions justify-center my-4">
           <button
             className="btn btn-primary"
+            aria-label={`Ignore ${firstName} ${lastName}`}
             onClick={() => sendRequest(_id, "ignored")}
           >
             Ignore
           </button>
           <button
             className="btn btn-secondary"
+            aria-label={`Interested in ${firstName} ${lastName}`}
             onClick={() => sendRequest(_id, "interested")}
           >
             Interested
