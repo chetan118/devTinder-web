@@ -175,7 +175,7 @@ const Login = () => {
             <input
               type="email"
               value={emailId}
-              placeholder="mail@site.com"
+              placeholder="e.g. john@example.com"
               onChange={(e) => setEmailId(e.target.value)}
               onKeyDown={handleKeyDown}
               required
