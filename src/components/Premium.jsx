@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const Premium = () => {
   const [isUserPremium, setIsUserPremium] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const verifyPremiumUser = async () => {
     const res = await axios.get(BASE_URL + "/user/ispremium", {
@@ -49,7 +50,7 @@ const Premium = () => {
     const rzp = new window.Razorpay(options);
     rzp.open();
     } catch (err) {
-      console.error(err);
+      setError("Payment failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -72,7 +73,8 @@ const Premium = () => {
             <li> - Blue Tick</li>
             <li> - 3 months</li>
           </ul>
-          <button
+          {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
+      <button
             onClick={() => handleBuyClick("silver")}
             className="btn btn-secondary"
           >
