@@ -117,7 +117,7 @@ const Chat = () => {
           className="flex-1 border border-gray-500 text-white rounded p-2"
           onKeyDown={handleKeyDown}
         ></input>
-        <button onClick={sendMessage} className="btn btn-secondary">
+        <button onClick={sendMessage} className="btn btn-secondary" aria-label="Send message">
           Send
         </button>
       </div>
