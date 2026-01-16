@@ -76,6 +76,7 @@ const Premium = () => {
           {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
       <button
             onClick={() => handleBuyClick("silver")}
+            disabled={isLoading}
             className="btn btn-secondary"
           >
             Buy Silver Membership
@@ -92,6 +93,7 @@ const Premium = () => {
           </ul>
           <button
             onClick={() => handleBuyClick("gold")}
+            disabled={isLoading}
             className="btn btn-primary"
           >
             Buy Gold Membership
