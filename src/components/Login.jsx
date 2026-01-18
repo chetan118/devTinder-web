@@ -228,7 +228,7 @@ const Login = () => {
               disabled={isLoading}
               onClick={isLoginPage ? handleLogin : handleSignUp}
             >
-              {isLoading ? <span className="loading loading-spinner loading-xs"></span> : (isLoginPage ? "Login" : "SignUp")}
+              {isLoading ? (isLoginPage ? "Logging in..." : "Signing up...") : (isLoginPage ? "Login" : "SignUp")}
             </button>
           </div>
           <p
