@@ -94,7 +94,7 @@ const Requests = () => {
         return (
           <div
             className="flex justify-between items-center rounded-lg bg-base-300 m-4 p-4 w-2/3 mx-auto"
-            key={_id}
+            key={request._id}
           >
             <div>
               <img src={photoUrl} className="rounded-lg" alt={firstName + " " + lastName} />
