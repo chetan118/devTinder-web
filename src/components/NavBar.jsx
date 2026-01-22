@@ -40,7 +40,7 @@ const NavBar = () => {
       {user && (
         <div className="flex gap-2">
           <div className="form-control content-center">
-            Welcome, {user.firstName}
+            Welcome, {user?.firstName ?? "User"}
           </div>
           <div className="dropdown dropdown-end mx-5" aria-label="User menu">
             <div
