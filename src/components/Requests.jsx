@@ -78,7 +78,7 @@ const Requests = () => {
     return (
       <div className="flex justify-center my-10">
         <ToastSuccessMessage result={reviewRequestRes} />
-        <h1 className="text-3xl">No Requests Found</h1>
+        <h1 className="text-3xl text-gray-500">No Requests Found</h1>
       </div>
     );
   }
