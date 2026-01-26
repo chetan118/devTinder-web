@@ -216,7 +216,7 @@ const EditProfile = ({ user }) => {
                 disabled={isLoading}
                 onClick={handleSaveProfile}
               >
-                {isLoading ? "Saving..." : "Save Profile"}
+                {isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Save Profile"}
               </button>
             </div>
           </div>
