@@ -26,9 +26,6 @@ const Chat = () => {
     });
 
     socket.on("messageReceived", ({ firstName, lastName, text }) => {
-      console.log(
-        firstName + " " + lastName + " sent the following message: " + text
-      );
       setMessages((messages) => [...messages, { firstName, lastName, text, createdAt: new Date().toISOString() }]);
     });
 
