@@ -92,7 +92,7 @@ const Chat = () => {
             <div
               key={index}
               className={
-                "chat " +
+                "chat gap-1 my-1 " +
                 (user.firstName === msg.firstName ? "chat-end" : "chat-start")
               }
             >
