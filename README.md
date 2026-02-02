@@ -2,6 +2,18 @@
 
 This is a React app which communicates with the APIs in the NodeJS backend app in [DevTinder](https://github.com/chetan118/devTinder).
 
+## Environment Variables
+
+Create a `.env` file in the project root with the following variable:
+
+```
+VITE_BASE_URL=http://localhost:7777
+```
+
+| Variable | Description |
+|---|---|
+| `VITE_BASE_URL` | Base URL of the devTinder backend API |
+
 ## Getting Started
 
 ### Prerequisites
