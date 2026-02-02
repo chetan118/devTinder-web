@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 const Feed = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const userId = user?._id;
   const [isLoading, setIsLoading] = useState(false);
   const feed = useSelector((state) => state.feed);
 
@@ -27,7 +29,7 @@ const Feed = () => {
 
   useEffect(() => {
     getFeed();
-  }, []);
+  }, [userId]);
 
   if (isLoading) {
     return (
