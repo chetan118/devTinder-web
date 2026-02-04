@@ -53,7 +53,7 @@ const Connections = () => {
           connection;
         return (
           <div
-            className="flex justify-between items-center rounded-lg bg-base-300 m-4 p-4 w-2/3 mx-auto"
+            className="flex justify-between items-center rounded-lg bg-base-300 m-4 p-4 w-2/3 mx-auto hover:shadow-lg transition-shadow"
             key={_id}
           >
             <img src={photoUrl} className="w-50 rounded-lg" alt={`${firstName} ${lastName}`} />
