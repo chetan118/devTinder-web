@@ -28,7 +28,7 @@ const UserCard = ({ user }) => {
       <div className="card-body">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         {age && gender && <p>{age + ", " + gender}</p>}
-        <p>{about}</p>
+        <p title={about}>{about}</p>
         {skills?.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-2">
             {skills.map((skill, i) => (
