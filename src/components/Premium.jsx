@@ -61,7 +61,7 @@ const Premium = () => {
   }, []);
 
   return isUserPremium ? (
-    "You are a premium user."
+    <div className="flex justify-center m-10"><p className="text-xl font-semibold">You are already a premium member!</p></div>
   ) : (
     <div className="m-10">
       <div className="flex w-full">
