@@ -93,7 +93,7 @@ const EditProfile = ({ user }) => {
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
-            <p className="validator-hint hidden">
+            <p className="validator-hint">
               Must be 2 to 50 characters
               <br />
               containing only letters, numbers, dash or space
@@ -130,7 +130,7 @@ const EditProfile = ({ user }) => {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
-            <p className="validator-hint hidden">
+            <p className="validator-hint">
               Must be 2 to 50 characters
               <br />
               containing only letters, numbers, dash or space
@@ -165,7 +165,7 @@ const EditProfile = ({ user }) => {
                 onChange={(e) => setPhotoUrl(e.target.value)}
               />
             </label>
-            <p className="validator-hint hidden">Must be valid URL</p>
+            <p className="validator-hint">Must be valid URL</p>
             <div className="label">
               <span>Age</span>
             </div>
@@ -180,7 +180,7 @@ const EditProfile = ({ user }) => {
               value={age}
               onChange={(e) => setAge(e.target.value)}
             />
-            <p className="validator-hint hidden">Must be between 18 to 100</p>
+            <p className="validator-hint">Must be between 18 to 100</p>
             <div className="label">
               <span>Gender</span>
             </div>
@@ -206,7 +206,7 @@ const EditProfile = ({ user }) => {
               value={about}
               onChange={(e) => setAbout(e.target.value)}
             ></textarea>
-            <p className="validator-hint hidden">
+            <p className="validator-hint">
               Must be between 10 to 5000 characters
             </p>
             <p className="text-red-500">{error}</p>
