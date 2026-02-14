@@ -20,7 +20,7 @@ const Connections = () => {
       });
       dispatch(addConnections(res?.data?.data));
     } catch (err) {
-      console.error(err);
+      console.warn("Failed to fetch connections:", err.message);
     } finally {
       setIsLoading(false);
     }
