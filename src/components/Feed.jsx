@@ -21,7 +21,7 @@ const Feed = () => {
       });
       dispatch(addFeed(res?.data?.users));
     } catch (err) {
-      console.error(err);
+      console.warn("Failed to fetch feed:", err.message);
     } finally {
       setIsLoading(false);
     }
