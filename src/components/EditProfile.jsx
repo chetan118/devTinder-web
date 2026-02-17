@@ -91,6 +91,7 @@ const EditProfile = ({ user }) => {
                 title="Only letters, numbers, dash or space"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                onFocus={() => setError("")}
               />
             </label>
             <p className="validator-hint">
