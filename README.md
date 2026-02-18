@@ -183,3 +183,9 @@ It becomes,
 - Project Idea 1 - Tic Tac Toe game
 - Project Idea 2 - Chess game
 - Project Idea 3 - Type Racer
+
+## Steps to be done after Restarting the EC2 Instance
+- IP address changes since I'm not using elastic ip which costs some money (probably Rs. 300 per month)
+- Update the IP address in cloudflare > Domains > chetansakpal.com > DNS > Records > A record
+- Update the IP address for AWS entry in cloud.mongodb.com i.e. MongoDB Atlas
+- SSH using the new public DNS from aws console and start the Node app with pm2
