@@ -13,6 +13,8 @@ const EditProfile = ({ user }) => {
   const [age, setAge] = useState(user.age || "");
   const [gender, setGender] = useState(user.gender || "male");
   const [about, setAbout] = useState(user.about);
+  const [skills, setSkills] = useState(user.skills || []);
+  const [skillInput, setSkillInput] = useState("");
   const [saveProfileRes, setSaveProfileRes] = useState({
     success: false,
     message: "",
@@ -20,6 +22,18 @@ const EditProfile = ({ user }) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  const addSkill = () => {
+    const trimmed = skillInput.trim();
+    if (trimmed && skills.length < 10 && !skills.includes(trimmed)) {
+      setSkills([...skills, trimmed]);
+    }
+    setSkillInput("");
+  };
+
+  const removeSkill = (skill) => {
+    setSkills(skills.filter((s) => s !== skill));
+  };
 
   const handleSaveProfile = async () => {
     setError("");
@@ -34,6 +48,7 @@ const EditProfile = ({ user }) => {
           age,
           gender,
           about,
+          skills,
         },
         { withCredentials: true }
       );
@@ -210,6 +225,38 @@ const EditProfile = ({ user }) => {
             <p className="validator-hint hidden">
               Must be between 10 to 2000 characters
             </p>
+            <div className="label">
+              <span>Skills</span>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                className="input input-sm flex-1"
+                placeholder="e.g. React"
+                value={skillInput}
+                onChange={(e) => setSkillInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addSkill())}
+                maxLength="30"
+              />
+              <button
+                type="button"
+                className="btn btn-sm btn-outline"
+                onClick={addSkill}
+                disabled={!skillInput.trim() || skills.length >= 10}
+              >
+                Add
+              </button>
+            </div>
+            {skills.length > 0 && (
+              <div className="flex flex-wrap gap-1 mt-1">
+                {skills.map((skill) => (
+                  <span key={skill} className="badge badge-outline gap-1">
+                    {skill}
+                    <button type="button" onClick={() => removeSkill(skill)}>✕</button>
+                  </span>
+                ))}
+              </div>
+            )}
             <p className="text-red-500">{error}</p>
             <div className="card-actions justify-center">
               <button
@@ -231,6 +278,7 @@ const EditProfile = ({ user }) => {
           age,
           gender,
           about,
+          skills,
         }}
       />
     </div>
