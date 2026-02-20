@@ -1,19 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { addConnections } from "../utils/connectionsSlice";
 
 const Chat = () => {
   const { targetUserId } = useParams();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const connections = useSelector((state) => state.connections);
   const userId = user?._id;
   const targetUser = connections?.find((c) => c._id === targetUserId);
   const socketRef = useRef(null);
+
+  useEffect(() => {
+    if (connections) return;
+    axios
+      .get(BASE_URL + "/user/connections", { withCredentials: true })
+      .then((res) => dispatch(addConnections(res.data.data)))
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (!userId) {
