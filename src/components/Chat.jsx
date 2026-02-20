@@ -10,7 +10,9 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const user = useSelector((state) => state.user);
+  const connections = useSelector((state) => state.connections);
   const userId = user?._id;
+  const targetUser = connections?.find((c) => c._id === targetUserId);
   const socketRef = useRef(null);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ const Chat = () => {
 
   return (
     <div className="w-2/3 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">
-      <h1 className="p-5 border-b border-gray-600">Chat with {targetUserId}</h1>
+      <h1 className="p-5 border-b border-gray-600">Chat with {targetUser ? `${targetUser.firstName} ${targetUser.lastName}` : targetUserId}</h1>
       <div className="p-5 flex-1 overflow-auto">
         {messages && messages.map((msg, index) => {
           return (
