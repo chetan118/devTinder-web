@@ -99,7 +99,7 @@ const Chat = () => {
   return (
     <div className="w-2/3 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">
       <div className="p-5 border-b border-gray-600 flex items-center gap-3">
-        <button onClick={() => navigate("/connections")} className="btn btn-sm btn-ghost">← Back</button>
+        <button onClick={() => navigate("/user/connections")} className="btn btn-sm btn-ghost">← Back</button>
         <h1>Chat with {targetUser ? `${targetUser.firstName} ${targetUser.lastName}` : targetUserId}</h1>
       </div>
       <div className="p-5 flex-1 overflow-auto">
