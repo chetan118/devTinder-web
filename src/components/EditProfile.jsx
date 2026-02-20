@@ -94,7 +94,7 @@ const EditProfile = ({ user }) => {
                 onFocus={() => setError("")}
               />
             </label>
-            <p className="validator-hint">
+            <p className="validator-hint hidden">
               Must be 2 to 50 characters
               <br />
               containing only letters, numbers, dash or space
@@ -131,7 +131,7 @@ const EditProfile = ({ user }) => {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
-            <p className="validator-hint">
+            <p className="validator-hint hidden">
               Must be 2 to 50 characters
               <br />
               containing only letters, numbers, dash or space
@@ -166,7 +166,7 @@ const EditProfile = ({ user }) => {
                 onChange={(e) => setPhotoUrl(e.target.value)}
               />
             </label>
-            <p className="validator-hint">Must be valid URL</p>
+            <p className="validator-hint hidden">Must be valid URL</p>
             <div className="label">
               <span>Age</span>
             </div>
@@ -181,7 +181,7 @@ const EditProfile = ({ user }) => {
               value={age}
               onChange={(e) => setAge(e.target.value)}
             />
-            <p className="validator-hint">Must be between 18 to 100</p>
+            <p className="validator-hint hidden">Must be between 18 to 100</p>
             <div className="label">
               <span>Gender</span>
             </div>
@@ -200,15 +200,15 @@ const EditProfile = ({ user }) => {
             <textarea
               className="textarea validator"
               minLength="10"
-              maxLength="5000"
+              maxLength="2000"
               required
               placeholder="About Yourself"
-              title="Must be between 10 to 5000 characters"
+              title="Must be between 10 to 2000 characters"
               value={about}
               onChange={(e) => setAbout(e.target.value)}
             ></textarea>
-            <p className="validator-hint">
-              Must be between 10 to 5000 characters
+            <p className="validator-hint hidden">
+              Must be between 10 to 2000 characters
             </p>
             <p className="text-red-500">{error}</p>
             <div className="card-actions justify-center">
