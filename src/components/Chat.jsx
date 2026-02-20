@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -11,6 +11,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const connections = useSelector((state) => state.connections);
   const userId = user?._id;
@@ -97,7 +98,10 @@ const Chat = () => {
 
   return (
     <div className="w-2/3 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">
-      <h1 className="p-5 border-b border-gray-600">Chat with {targetUser ? `${targetUser.firstName} ${targetUser.lastName}` : targetUserId}</h1>
+      <div className="p-5 border-b border-gray-600 flex items-center gap-3">
+        <button onClick={() => navigate("/connections")} className="btn btn-sm btn-ghost">← Back</button>
+        <h1>Chat with {targetUser ? `${targetUser.firstName} ${targetUser.lastName}` : targetUserId}</h1>
+      </div>
       <div className="p-5 flex-1 overflow-auto">
         {messages && messages.map((msg, index) => {
           return (
